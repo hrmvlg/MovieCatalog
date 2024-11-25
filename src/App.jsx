@@ -24,11 +24,12 @@ function App() {
   }, [])
 
   function onSearch(query) {
-    console.log('отработал');
-    fetch('https://api.themoviedb.org/3/search/multi?query=' + query + '&include_adult=false&language=en-US&page=1', options)
-      .then(res => res.json())
-      .then(res => setMovies(res.results))
-      .catch(err => console.error(err));
+    if (query != '' && query) {
+      fetch('https://api.themoviedb.org/3/search/multi?query=' + query + '&include_adult=false&language=en-US&page=1', options)
+        .then(res => res.json())
+        .then(res => setMovies(res.results))
+        .catch(err => console.error(err));
+    }
   }
 
   return (
