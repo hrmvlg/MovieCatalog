@@ -12,7 +12,7 @@ function App() {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMjc0ZDZkY2E3MWMxMzY2ZWE1NWJmYWE1ODMxZjU1YyIsIm5iZiI6MTczMjUzMTU3NC4wMzU4NzQxLCJzdWIiOiI2NzNmNzVhYjIxZGE0Mjk2N2ZjNDk5OTEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.C5wRDA5yQbOvj5TIlqed3w1uqlvLW3ib_04Y2W1GZc0'
+      Authorization: "Bearer " + import.meta.env.VITE_API_OPTIONS
     }
   };
 
