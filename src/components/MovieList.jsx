@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import MovieItem from './MovieItem'
+import Preloader from './Preloader';
 
 export default function MovieList({ movies }) {
 
@@ -21,7 +22,7 @@ export default function MovieList({ movies }) {
                                 key={movie.id}
                             />)
                     })
-                    : (<h5>Movie list is empty</h5>)
+                    : (<Preloader />)
             }
         </ul>
     )
