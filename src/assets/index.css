@@ -36,3 +36,19 @@ nav {
     flex-direction: row;
     justify-content: space-between;
 }
+
+.input-field input {
+    box-sizing: border-box !important;
+}
+
+.input-field input[type=search]:focus {
+    border-bottom: 2px solid #607d8b !important;
+}
+
+.btn-search {
+    margin-top: 10px;
+}
+
+.btn-search:hover {
+    background-color: #607d8b !important;
+}
