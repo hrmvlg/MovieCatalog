@@ -53,3 +53,8 @@ nav {
 .btn-search:hover {
     background-color: #607d8b !important;
 }
+
+.search__filter {
+    display: flex;
+    justify-content: space-around;
+}

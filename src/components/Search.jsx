@@ -3,11 +3,22 @@ import { useState } from 'react';
 
 export default function Search({ onSearch }) {
 
-    const [search, setSearch] = useState('');
+    const [query, setQuery] = useState('');
+    const [filter, setFilter] = useState('multi')
 
-    const handleKeyDown = (event) => {
-        if (event.key === "Enter") {
-            onSearch(search);
+    const handleSearch = (event) => {
+        if (event.type === 'keydown' && event.key !== 'Enter') {
+            return;
+        }
+
+        const trimmedQuery = query.replace(/\s+/g, ' ').trim();
+        setQuery(trimmedQuery);
+
+        if (trimmedQuery) {
+            onSearch(trimmedQuery, filter);
+        }
+        else {
+            onSearch(null, filter)
         }
     }
 
@@ -18,13 +29,59 @@ export default function Search({ onSearch }) {
                     className="validate"
                     type="search"
                     placeholder="search"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    onKeyDown={handleKeyDown}
+                    value={query}
+                    onChange={(e) => { setQuery(e.target.value) }}
+                    onKeyDown={handleSearch}
                 />
+                <form className='search__filter'>
+                    <p>
+                        <label>
+                            <input
+                                type="radio"
+                                checked={filter === 'multi'}
+                                value="multi"
+                                onChange={(e) => setFilter(e.target.value)}
+                            />
+                            <span>All</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input
+                                type="radio"
+                                checked={filter === 'tv'}
+                                value="tv"
+                                onChange={(e) => setFilter(e.target.value)}
+                            />
+                            <span>TV</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input
+                                type="radio"
+                                checked={filter === 'movie'}
+                                value='movie'
+                                onChange={(e) => setFilter(e.target.value)}
+                            />
+                            <span>Movie</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input
+                                type="radio"
+                                checked={filter === 'person'}
+                                value="person"
+                                onChange={(e) => setFilter(e.target.value)}
+                            />
+                            <span>Person</span>
+                        </label>
+                    </p>
+                </form>
                 <button
                     className="btn btn-search blue-grey darken-3"
-                    onClick={() => { onSearch(search) }}
+                    onClick={handleSearch}
                 >
                     Search
                 </button>

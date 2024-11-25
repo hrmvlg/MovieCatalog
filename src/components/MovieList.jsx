@@ -3,6 +3,9 @@ import MovieItem from './MovieItem'
 import Preloader from './Preloader';
 
 export default function MovieList({ movies }) {
+    if (movies) {
+        if (movies.length === 0) return <h4 className="">Nothing found ☹️</h4>
+    }
 
     return (
         <ul className="movie-list">
