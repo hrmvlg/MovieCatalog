@@ -1,17 +1,25 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Search({ onSearch }) {
 
-    const [query, setQuery] = useState('');
-    const [filter, setFilter] = useState('multi')
+    const [query, setQuery] = useState("");
+    const [filter, setFilter] = useState("multi")
+
+    const handleFilter = (event) => {
+        setFilter(event.target.dataset.type);
+    }
+
+    const handleQuery = (event) => {
+        setQuery(event.target.value)
+    }
 
     const handleSearch = (event) => {
-        if (event.type === 'keydown' && event.key !== 'Enter') {
+        if (event.type === "keydown" && event.key !== "Enter") {
             return;
         }
 
-        const trimmedQuery = query.replace(/\s+/g, ' ').trim();
+        const trimmedQuery = query.replace(/\s+/g, " ").trim();
         setQuery(trimmedQuery);
 
         if (trimmedQuery) {
@@ -30,17 +38,18 @@ export default function Search({ onSearch }) {
                     type="search"
                     placeholder="search"
                     value={query}
-                    onChange={(e) => { setQuery(e.target.value) }}
+                    onChange={handleQuery}
                     onKeyDown={handleSearch}
                 />
-                <form className='search__filter'>
+                <form className="search__filter">
                     <p>
                         <label>
                             <input
                                 type="radio"
+                                name="type"
+                                data-type="multi"
+                                onChange={handleFilter}
                                 checked={filter === 'multi'}
-                                value="multi"
-                                onChange={(e) => setFilter(e.target.value)}
                             />
                             <span>All</span>
                         </label>
@@ -49,9 +58,9 @@ export default function Search({ onSearch }) {
                         <label>
                             <input
                                 type="radio"
-                                checked={filter === 'tv'}
-                                value="tv"
-                                onChange={(e) => setFilter(e.target.value)}
+                                name="type"
+                                data-type="tv"
+                                onChange={handleFilter}
                             />
                             <span>TV</span>
                         </label>
@@ -60,9 +69,9 @@ export default function Search({ onSearch }) {
                         <label>
                             <input
                                 type="radio"
-                                checked={filter === 'movie'}
-                                value='movie'
-                                onChange={(e) => setFilter(e.target.value)}
+                                name="type"
+                                data-type="movie"
+                                onChange={handleFilter}
                             />
                             <span>Movie</span>
                         </label>
@@ -71,9 +80,9 @@ export default function Search({ onSearch }) {
                         <label>
                             <input
                                 type="radio"
-                                checked={filter === 'person'}
-                                value="person"
-                                onChange={(e) => setFilter(e.target.value)}
+                                name="type"
+                                data-type="person"
+                                onChange={handleFilter}
                             />
                             <span>Person</span>
                         </label>
