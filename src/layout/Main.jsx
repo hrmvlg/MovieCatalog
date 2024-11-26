@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import MovieList from '../components/MovieList';
 import Search from '../components/Search';
 import { useEffect, useState } from 'react';
