@@ -73,3 +73,7 @@ yarn build
 
 - **Email**: olya.hrmvlg@gmail.com
 - **GitHub**: [hrmvlg](https://github.com/hrmvlg)
+
+
+## **Посестить сайт вы можете [здесь](https://hrmvlg.github.io/MovieCatalog/)**
+Если вы находитесь в России, рекомендую включить VPN.
