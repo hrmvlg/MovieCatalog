@@ -6,7 +6,7 @@ export default function Header() {
                 <a href="#" className="brand-logo left">React Movie Catalog</a>
                 <ul id="nav-mobile" className="right">
                     <li>
-                        <a href="sass.html">GitHub Repository</a>
+                        <a href="https://github.com/hrmvlg/MovieCatalog">GitHub Repository</a>
                     </li>
                 </ul>
             </div>
