@@ -30,6 +30,10 @@ export default function Search({ onSearch }) {
         }
     }
 
+    const handleRadioButtonClick = (event) => {
+        onSearch(null, event.target.dataset.type);   
+    }
+
     return (
         <div className="search row">
             <div className="input-field col s12">
@@ -50,6 +54,7 @@ export default function Search({ onSearch }) {
                                 data-type="multi"
                                 onChange={handleFilter}
                                 checked={filter === 'multi'}
+                                onClick={handleRadioButtonClick}
                             />
                             <span>All</span>
                         </label>
@@ -61,6 +66,7 @@ export default function Search({ onSearch }) {
                                 name="type"
                                 data-type="tv"
                                 onChange={handleFilter}
+                                onClick={handleRadioButtonClick}
                             />
                             <span>TV</span>
                         </label>
@@ -72,6 +78,7 @@ export default function Search({ onSearch }) {
                                 name="type"
                                 data-type="movie"
                                 onChange={handleFilter}
+                                onClick={handleRadioButtonClick}
                             />
                             <span>Movie</span>
                         </label>
@@ -83,6 +90,7 @@ export default function Search({ onSearch }) {
                                 name="type"
                                 data-type="person"
                                 onChange={handleFilter}
+                                onClick={handleRadioButtonClick}
                             />
                             <span>Person</span>
                         </label>
